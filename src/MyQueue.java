@@ -20,15 +20,16 @@ public class MyQueue<T> {
         if(isFull()) {
             throw new ArrayIndexOutOfBoundsException();
         }
-        this.queueArray[++top] = element;
+        this.queueArray[++this.top] = element;
     }
 
     public T dequeue() {
         T element = this.queueArray[0];
-        for(int i = 0; i < this.queueArray.length-1; i++) {
+        for(int i = 0; i < this.top; i++) {
             this.queueArray[i] = this.queueArray[i+1];
         }
-        this.queueArray[this.queueArray.length] = null;
+        this.queueArray[this.top] = null;
+        this.top--;
         return element;
 
     }
@@ -52,5 +53,36 @@ public class MyQueue<T> {
             return true;
         }
         return false;
+    }
+
+    public int getTop() {
+        return top;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public T[] getQueueArray() {
+        return queueArray;
+    }
+
+
+    public static void main (String [] args) {
+        MyQueue queue = new MyQueue(10);
+        queue.enqueue("Hello");
+        queue.enqueue("my");
+        queue.enqueue("Name");
+        queue.enqueue("is");
+        queue.enqueue("Gauri");
+        System.out.println(queue.peek());
+
+        for(int i = 0; i < queue.getQueueArray().length; i++) {
+            System.out.println(queue.getQueueArray()[i]);
+        }
     }
 }
