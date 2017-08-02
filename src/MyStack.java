@@ -15,9 +15,9 @@ public class MyStack<T> {
      * size: user-defined size of the stack.
      */
 
-    private int top;
-    private T[] stackArray;
-    private int size;
+    protected int top;
+    protected T[] stackArray;
+    protected int size;
 
     /**
      * For those new to OOP, right below this is the constructor for the Stack object.
