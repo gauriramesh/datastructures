@@ -17,7 +17,7 @@ public class MyStack<T> {
 
     protected int top;
     protected T[] stackArray;
-    protected int size;
+    protected final int size;
 
     /**
      * For those new to OOP, right below this is the constructor for the Stack object.
@@ -57,7 +57,9 @@ public class MyStack<T> {
         if(isEmpty()) {
             throw new NoSuchElementException("Stack is empty");
         }
-        return this.stackArray[top--];
+        T returnValue = this.stackArray[top];
+        this.stackArray[top--] = null;
+        return returnValue;
     }
 
     /**
@@ -68,7 +70,7 @@ public class MyStack<T> {
      */
 
     public boolean isFull() {
-        if(this.top==(size - 1)) {
+        if(this.top == (size - 1)) {
             return true;
         }
         return false;
@@ -81,7 +83,7 @@ public class MyStack<T> {
      */
 
     public boolean isEmpty() {
-        if(this.top== -1) {
+        if(this.top == -1) {
             return true;
         }
         return false;
@@ -91,7 +93,7 @@ public class MyStack<T> {
      * Here are a few getters and setters because hey, what's an object without them?
      */
 
-    public int getTop() {
+    public int getSize() {
         return top;
     }
 
@@ -99,15 +101,8 @@ public class MyStack<T> {
         return stackArray;
     }
 
-    public void setStackArray(T[] stackArray) {
-        this.stackArray = stackArray;
-    }
 
-    public int getSize() {
+    public int getCapacity() {
         return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
     }
 }

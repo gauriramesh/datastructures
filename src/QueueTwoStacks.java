@@ -4,9 +4,9 @@ import java.util.NoSuchElementException;
  * Created by Gauri Ramesh on 08/02/2017.
  */
 public class QueueTwoStacks<T> {
-    MyStack stack1;
-    MyStack stack2;
-    int size;
+    protected MyStack stack1;
+    protected MyStack stack2;
+    protected int size;
 
     public QueueTwoStacks(int size) {
         this.size = size;
@@ -46,4 +46,5 @@ public class QueueTwoStacks<T> {
             return true;
         } return false;
     }
+
 }

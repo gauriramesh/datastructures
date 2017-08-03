@@ -73,16 +73,12 @@ public class MyQueue<T> {
 
 
     public static void main (String [] args) {
-        MyQueue queue = new MyQueue(10);
+        QueueTwoStacks queue = new QueueTwoStacks(10);
         queue.enqueue("Hello");
         queue.enqueue("my");
         queue.enqueue("Name");
         queue.enqueue("is");
         queue.enqueue("Gauri");
-        System.out.println(queue.peek());
 
-        for(int i = 0; i < queue.getQueueArray().length; i++) {
-            System.out.println(queue.getQueueArray()[i]);
-        }
     }
 }
