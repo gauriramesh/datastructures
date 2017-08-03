@@ -42,17 +42,11 @@ public class MyQueue<T> {
     }
 
     public boolean isEmpty() {
-        if(this.top == -1) {
-            return true;
-        }
-        return false;
+        return (this.top == -1);
     }
 
     public boolean isFull() {
-        if(this.top==(this.size -1)) {
-            return true;
-        }
-        return false;
+        return(this.top==(this.size -1));
     }
 
     public int getTop() {

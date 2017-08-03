@@ -27,17 +27,52 @@ public class MyLinkedList<T> {
         this.head = null;
     }
 
-    public void insert(T element) {
-        Node node = new Node(element);
-        if(this.head == null) {
-            this.head = node;
-        } else if(this.head.getNext() == null) {
-            this.head.setNext(node);
-            node.setNext(null);
-        } else {
-            //TO BE IMPLEMENTED.
-        }
+    public void insertAtBeginning(T element) {
+       if(this.head == null) {
+           this.head = new Node(element);
+           this.head.setNext(null);
+       } else {
+           Node<T> oldHead = this.head;
+           this.head = new Node(element);
+           this.head.setNext(oldHead);
+       }
     }
+
+    public void insertAtEnd(T element) {
+        Node<T> pointer = this.head;
+        while(pointer.getNext() != null) {
+            pointer = pointer.getNext();
+        }
+        pointer.setNext(new Node<>(element));
+    }
+
+    public void add(T element, int index) {
+        //todo implement;
+    }
+
+    public void remove(int index) {
+        //TODO implement
+    }
+
+    public void clear() {
+       //todo implement
+    }
+
+    public Node<T> get(int index) {
+        //TODO implement.
+        int count = 0;
+        Node pointer = this.head;
+        while(pointer != null) {
+            if(count == index) {
+                return pointer;
+            }
+            pointer = pointer.getNext();
+            count++;
+        }
+        return null;
+    }
+
+
 
 
 }

@@ -70,12 +70,8 @@ public class MyStack<T> {
      */
 
     public boolean isFull() {
-        if(this.top == (size - 1)) {
-            return true;
-        }
-        return false;
+        return (this.top == (size - 1));
     }
-
     /**
      * Do we have stack underflow?
      * We can use a similar approach as above.
@@ -83,10 +79,7 @@ public class MyStack<T> {
      */
 
     public boolean isEmpty() {
-        if(this.top == -1) {
-            return true;
-        }
-        return false;
+        return (this.top == -1);
     }
 
     /**

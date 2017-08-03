@@ -25,11 +25,11 @@ public class QueueTwoStacks<T> {
         if(isEmpty()) {
             throw new NoSuchElementException("Underflow error");
         }
-        for(int i = 0; i < this.stack1.getTop(); i++) {
+        for(int i = 0; i < this.stack1.getSize(); i++) {
             this.stack2.push(this.stack1.pop());
         }
         T element = (T) this.stack2.pop();
-        for(int i = 0; i < this.stack2.getTop(); i++) {
+        for(int i = 0; i < this.stack2.getSize(); i++) {
             this.stack1.push(this.stack2.pop());
         }
         return element;
