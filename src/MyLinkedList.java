@@ -47,15 +47,24 @@ public class MyLinkedList<T> {
     }
 
     public void add(T element, int index) {
-        //todo implement;
+        Node node = new Node(element);
+        Node prevNode = this.get(index -1);
+        node.setNext(this.get(index));
+        prevNode.setNext(node);
     }
 
     public void remove(int index) {
-        //TODO implement
+        Node next = this.get(index).getNext();
+        this.get(index).setNext(null);
+        this.get(index - 1).setNext(next);
     }
 
     public void clear() {
-       //todo implement
+      Node pointer = this.head;
+      while(pointer.getNext() != null) {
+          pointer.setNext(null);
+          pointer = pointer.getNext();
+      }
     }
 
     public Node<T> get(int index) {
@@ -71,6 +80,8 @@ public class MyLinkedList<T> {
         }
         return null;
     }
+
+
 
 
 
